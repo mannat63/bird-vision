@@ -1,0 +1,39 @@
+# --- Secrets ---
+.env
+*.env
+!.env.example
+**/.env
+!**/.env.example
+
+# --- Large model binaries (deliver via mount/download, not Git) ---
+*.keras
+*.h5
+*.weights.h5
+confusion_matrix.npy
+
+# --- Python ---
+venv/
+.venv/
+**/venv/
+**/.venv/
+env/
+**/site-packages/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+.ipynb_checkpoints/
+
+# --- Node / Next.js ---
+node_modules/
+.next/
+out/
+frontend/.env.local
+npm-debug.log*
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

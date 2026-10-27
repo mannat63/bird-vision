@@ -1,0 +1,29 @@
+{
+  "model_name": "EfficientNetB0",
+  "dataset_source_notebook": "https://www.kaggle.com/datasets/veeralakrishna/200-bird-species-with-11788-images",
+  "dataset_slug": "veeralakrishna/200-bird-species-with-11788-images",
+  "num_classes": 200,
+  "train_images": 5194,
+  "validation_images": 800,
+  "test_images": 5794,
+  "input_size": [
+    224,
+    224,
+    3
+  ],
+  "test_top1_accuracy": 0.7105626510182947,
+  "test_top5_accuracy": 0.9244045564376941,
+  "macro_precision": 0.7352281514109,
+  "macro_recall": 0.7127481867098768,
+  "macro_f1": 0.7146373257471731,
+  "weighted_precision": 0.7337332675326778,
+  "weighted_recall": 0.7105626510182947,
+  "weighted_f1": 0.7127168606259172,
+  "tensorflow_version": "2.21.0",
+  "gpu_devices": [
+    "/physical_device:GPU:0"
+  ],
+  "single_image_latency_ms_mean": 293.4467149333462,
+  "single_image_latency_ms_median": 290.43692999994164,
+  "single_image_latency_ms_p95": 313.3479418999968
+}
