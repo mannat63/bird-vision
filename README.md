@@ -1,3 +1,17 @@
+---
+title: BirdVision AI Backend
+emoji: 🪶
+colorFrom: green
+colorTo: gray
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
+<!-- The YAML block above configures a Hugging Face Spaces (Docker) deployment of
+     the backend; see docs/DEPLOY_BACKEND.md. It is ignored by normal Markdown
+     viewers. -->
+
 # 🪶 BirdVision AI
 
 **Identify the wild. Understand the world.**
