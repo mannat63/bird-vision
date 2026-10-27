@@ -1,0 +1,13 @@
+backend/venv/
+backend/.venv/
+**/__pycache__/
+**/*.pyc
+.git/
+frontend/
+research_paper/
+docs/
+*.keras
+*.h5
+confusion_matrix.npy
+.pytest_cache/
+backend/.env

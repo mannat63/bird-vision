@@ -1,0 +1,39 @@
+# Render Blueprint for the BirdVision AI backend.
+# In Render: New + -> Blueprint -> pick this repo. Render reads this file,
+# then asks you to fill the secret env vars marked "sync: false".
+#
+# NOTE ON MEMORY: TensorFlow + the model needs roughly 0.7-1 GB RAM at load.
+# Render's Free and Starter instances are 512 MB and will likely run out of
+# memory. Use the "standard" plan (2 GB) below for a reliable deploy, or prefer
+# the free Hugging Face Spaces path in docs/DEPLOY_BACKEND.md (2 vCPU / 16 GB).
+services:
+  - type: web
+    name: birdvision-backend
+    runtime: python
+    rootDir: backend
+    plan: standard            # 2 GB RAM. Downgrade to 'starter'/'free' at your own OOM risk.
+    buildCommand: pip install -r requirements.txt
+    startCommand: python download_model.py && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      # --- secrets: set these in the Render dashboard (never commit them) ---
+      - key: GROQ_API_KEY
+        sync: false
+      - key: EBIRD_API_KEY
+        sync: false
+      # Direct download URL for birdvision_model.keras (e.g. a GitHub Release asset).
+      - key: MODEL_URL
+        sync: false
+      # Your deployed frontend origin, e.g. https://bird-vision.vercel.app
+      - key: CORS_ORIGINS
+        sync: false
+      # --- non-secret defaults ---
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: GROQ_FALLBACK_MODEL
+        value: openai/gpt-oss-20b
+      - key: ENVIRONMENT
+        value: production
